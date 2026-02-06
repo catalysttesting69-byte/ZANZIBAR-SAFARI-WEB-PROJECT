@@ -1,0 +1,558 @@
+/* 
+=================================================================================
+Custom Stylesheet
+- This file contains custom styles that supplement the Tailwind CSS utility classes.
+- It includes styles for complex components, animations, and overall theme properties.
+=================================================================================
+*/
+
+/* --- Global & Background Styles --- */
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+}
+
+.cta-bg {
+    background-image: linear-gradient(rgba(13, 148, 136, 0.9), rgba(17, 94, 89, 0.9)), url('https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* --- Tour Card Styles --- */
+.tour-card {
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tour-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(79, 209, 197, 0.4), 
+                0 10px 40px -15px rgba(13, 148, 136, 0.3);
+    transform: translateY(-8px);
+}
+
+.tour-card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 2rem;
+}
+
+.tour-card-body {
+    flex-grow: 1;
+}
+
+.description-wrapper {
+    max-height: 6em; /* Approximately 4 lines * 1.5em line-height */
+    line-height: 1.5em;
+    overflow: hidden;
+    position: relative;
+}
+
+.tour-card .image-container {
+    height: 16rem; /* h-64 */
+    transition: height 0.5s ease-in-out;
+}
+
+.tour-card-img {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Button Animation --- */
+.tour-card-btn {
+    margin-top: auto;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.tour-card-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(79, 209, 197, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.tour-card-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.tour-card-btn:hover {
+    background-color: #0d9488;
+    color: white;
+    border-color: #0d9488;
+    transform: scale(1.05);
+}
+
+.tour-card-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* Media query for disabling parallax on mobile for performance */
+@media (max-width: 767px) {
+    .hero-bg {
+        background-attachment: scroll;
+    }
+
+    /* Mobile-responsive Tour Cards */
+    .tour-card {
+        height: auto; /* Allow cards to size based on content */
+        min-height: 380px;
+    }
+
+    .tour-card .image-container {
+        height: 14rem; /* Increase image space to 224px */
+    }
+
+    .tour-card-content {
+        padding: 1rem; /* Reduce padding to give more space for image */
+    }
+
+    .tour-card h3 {
+        font-size: 0.95rem; /* Slightly smaller heading on mobile */
+        margin-bottom: 0.5rem;
+    }
+
+    .description-wrapper {
+        max-height: 3.5em; /* Reduce from 6em to 3.5em (2-3 lines) */
+        font-size: 0.8rem;
+    }
+
+    .tour-card-btn {
+        padding: 0.4rem 0.8rem; /* Reduce button padding */
+        font-size: 0.8rem;
+    }
+
+    .tour-card-footer {
+        padding-top: 0.5rem;
+    }
+
+    .tour-card-footer .flex {
+        /* Keep hours on the left and tour type on the right on small screens */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .tour-card-footer span {
+        font-size: 0.7rem;
+    }
+    .tour-card-footer .flex span:first-child {
+        color: #0d9488; /* brand color for emphasis on time */
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .tour-card-footer .flex span:last-child {
+        color: #115e59; /* slightly darker brand for category */
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    /* Tours section responsive adjustments */
+    #tours .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    #tours .grid {
+        gap: 1rem; /* Reduce from gap-8 (2rem) to 1rem for tighter spacing */
+    }
+
+    #tours .text-center h2 {
+        font-size: 1.875rem; /* Reduce from text-4xl (2.25rem) to 1.875rem */
+    }
+
+    #tours .text-center h4 {
+        font-size: 0.9rem;
+    }
+}
+
+/* Gallery responsive styles */
+@media (max-width: 480px) {
+    .tour-card {
+        min-height: 350px;
+    }
+
+    .tour-card .image-container {
+        height: 12.5rem; /* Increase to 200px for more image space */
+    }
+
+    .tour-card-content {
+        padding: 0.75rem;
+    }
+
+    .tour-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .description-wrapper {
+        max-height: 2.5em; /* About 2 lines */
+        font-size: 0.75rem;
+    }
+
+    .tour-card-btn {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.75rem;
+    }
+
+    .tour-card-footer .flex {
+        /* Keep hours left and tour type right on extra-small screens */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .tour-card-footer span {
+        font-size: 0.65rem;
+    }
+    .tour-card-footer .flex span:first-child {
+        color: #0d9488;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .tour-card-footer .flex span:last-child {
+        color: #115e59;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+}
+
+
+/* --- Gallery Styles --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-flow: dense; /* Helps fill in gaps */
+    gap: 0.5rem;
+    padding: 2rem 0;
+}
+
+.gallery-item {
+    background-color: #fff;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+}
+
+.gallery-item:hover {
+    transform: scale(1.15) !important; /* Enlarge on hover, override nth-child transforms */
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.gallery-item img {
+    border-radius: 0.25rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Different sizes and rotations for collage effect */
+.gallery-item:nth-child(11n+1) { grid-column: span 2; grid-row: span 2; transform: rotate(-3deg); }
+.gallery-item:nth-child(11n+2) { grid-row: span 2; transform: rotate(2deg); margin-top: -1rem; }
+.gallery-item:nth-child(11n+3) { transform: rotate(5deg); margin-left: -2rem; }
+.gallery-item:nth-child(11n+4) { grid-column: span 2; transform: rotate(-2deg); margin-top: -3rem; }
+.gallery-item:nth-child(11n+5) { grid-row: span 2; transform: rotate(4deg); }
+.gallery-item:nth-child(11n+6) { transform: rotate(-5deg); margin-left: 2rem; margin-top: -2rem; }
+.gallery-item:nth-child(11n+7) { grid-column: span 2; grid-row: span 2; transform: rotate(3deg); margin-top: -1rem; }
+.gallery-item:nth-child(11n+8) { transform: rotate(-2deg); margin-left: -1rem; }
+.gallery-item:nth-child(11n+9) { grid-row: span 2; transform: rotate(5deg); }
+.gallery-item:nth-child(11n+10) { grid-column: span 2; transform: rotate(-4deg); margin-top: -2rem; }
+.gallery-item:nth-child(11n+11) { transform: rotate(2deg); }
+.gallery-item-featured { grid-column: span 2 !important; grid-row: span 2 !important; }
+
+/* --- Lightbox Styles --- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.lightbox.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-content img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0.5rem;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 1010;
+    opacity: 0.7;
+    transition: opacity 0.3s, background 0.3s;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-nav:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox:not(.show) .lightbox-nav {
+    display: none;
+}
+
+
+/* --- WhatsApp Floating Button Styles --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color: rgba(37, 211, 102, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    animation: whatsapp-pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    width: 160px;
+    justify-content: flex-start;
+    padding-left: 12px;
+    background-color: rgba(37, 211, 102, 0.7);
+}
+
+.whatsapp-icon-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.whatsapp-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.whatsapp-text {
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    width: 0;
+    transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.whatsapp-float:hover .whatsapp-text {
+    opacity: 1;
+    width: auto;
+}
+
+@keyframes whatsapp-pulse {
+    0% { transform: scale(1); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); }
+    50% { transform: scale(1.03); box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2); }
+    100% { transform: scale(1); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); }
+}
+
+/* --- Testimonial Card Styles --- */
+.testimonial-card {
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.testimonial-card p.text-gray-600 { /* Targeting the testimonial text para */
+    flex-grow: 1;
+    max-height: 180px;
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    margin-bottom: 1rem;
+}
+
+.testimonial-card p.text-gray-600::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+.testimonial-card.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Disable interaction during fade */
+}
+
+.testimonial-card.fade-in {
+    opacity: 1;
+}
+
+/* --- Footer Styles --- */
+#contact {
+    position: relative; /* Needed for the ::before pseudo-element to be positioned correctly. */
+}
+
+#contact::before {
+    content: '';
+    position: absolute;
+    inset: 0; /* Cover the entire footer area */
+    background-image: url('pictures/zanzibarSafarilogo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.05; /* Low opacity to act as a watermark */
+    z-index: 0; /* Place it behind the footer content */
+}
+
+.footer-logo-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Responsive positioning for the footer logo on large screens */
+@media (min-width: 1024px) {
+    #contact::before {
+        background-size: 180px; /* A more contained size to fit behind the icons */
+        background-position: 90% 70%; /* Centered in the last column, and vertically aligned with the icons */
+    }
+}
+
+/* --- Partners Section --- */
+.partner-logo {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0.7;
+}
+
+.partner-logo:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* --- Scroll Animation Styles --- */
+.animated-section {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-animate-up {
+    transform: translateY(50px);
+}
+
+.scroll-animate-down {
+    transform: translateY(-50px);
+}
+
+.scroll-animate-left {
+    transform: translateX(-50px);
+}
+
+.scroll-animate-right {
+    transform: translateX(50px);
+}
+
+.animated-section.is-visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+}
+
+
+/* --- Staggered Item Animations --- */
+.animated-item {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* When the parent .animated-section becomes visible, these items will trigger */
+.is-visible .animated-item {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Stagger Delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }

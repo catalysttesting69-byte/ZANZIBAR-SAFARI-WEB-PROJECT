@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zanzibar Safari Tours | Paradise Awaits</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script:wght@400..700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#4fd1c5', // Turquoise
+                            DEFAULT: '#0d9488', // Teal
+                            dark: '#115e59', // Dark Teal
+                            accent: '#f59e0b', // Amber/Gold
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        handwriting: ['Caveat', 'cursive'],
+                        dancing: ['Dancing Script', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-gray-700 antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 text-white">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-serif font-bold tracking-wider flex items-center gap-2"> Zanzibar Safari </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8 items-center font-medium">
+                <li><a href="#about" class="hover:text-brand-accent transition">About</a></li>
+                <li><a href="#tours" class="hover:text-brand-accent transition">Tours</a></li>
+                <li><a href="#why-us" class="hover:text-brand-accent transition">Why Us</a></li>
+                <li><a href="#gallery" class="hover:text-brand-accent transition">Gallery</a></li>
+                <li><a href="#booking" class="bg-brand-accent hover:bg-amber-600 text-white px-6 py-2 rounded-full transition shadow-lg transform hover:-translate-y-0.5 font-semibold">Book Now</a></li>
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button id="hamburger-btn" class="md:hidden text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white text-gray-800 shadow-xl md:hidden">
+            <ul class="flex flex-col py-4">
+                <li><a href="#about" class="block px-6 py-3 hover:bg-gray-100 border-b border-gray-100">About</a></li>
+                <li><a href="#tours" class="block px-6 py-3 hover:bg-gray-100 border-b border-gray-100">Tours</a></li>
+                <li><a href="#why-us" class="block px-6 py-3 hover:bg-gray-100 border-b border-gray-100">Why Us</a></li>
+                <li><a href="#gallery" class="block px-6 py-3 hover:bg-gray-100 border-b border-gray-100">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4 relative">
+        <div class="max-w-4xl text-white z-10 animate-fade-in-up">
+            <span class="block text-brand-accent font-bold tracking-widest uppercase mb-4 text-sm md:text-base">Welcome to Zanzibar Safari</span>
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-serif font-bold mb-6 text-shadow leading-tight">Paradise Found: <br>The Ultimate Experience</h1>
+            <p class="text-lg md:text-xl mb-10 text-gray-100 max-w-2xl mx-auto font-light">Discover pristine beaches, rich history, and vibrant culture with the island's most trusted guides.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#tours" class="bg-brand-accent hover:bg-amber-600 text-white px-8 py-4 rounded-full font-bold transition shadow-lg transform hover:-translate-y-1 flex justify-center items-center">Explore Packages</a>
+                <a href="#about" class="border-2 border-white hover:bg-white hover:text-brand-dark text-white px-8 py-4 rounded-full font-bold transition">Learn More</a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <a href="#about" class="absolute bottom-10 animate-bounce text-white text-2xl">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 md:py-20 bg-white animated-section scroll-animate-right">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12">
+                <div class="md:w-1/2 relative">
+                    <div class="absolute -top-4 -left-4 w-8 md:w-12 h-16 md:h-24 bg-brand-light rounded-tl-3xl -z-10"></div>
+                    <div class="absolute -bottom-4 -right-4 w-8 md:w-12 h-16 md:h-24 bg-brand-accent rounded-br-3xl -z-10"></div>
+                    <img src="pictures/Things-to-do-in-Stone-Town-Zanzibar.jpg" onerror="this.onerror=null; this.src='https://placehold.co/1000x500/115e59/ffffff?text=Stone+Town+Alley';" alt="Stone Town Alley" class="rounded-xl shadow-2xl w-full object-cover h-64 md:h-[500px]">
+                </div>
+                <div class="md:w-1/2">
+                    <h4 class="text-brand-DEFAULT font-bold uppercase tracking-wider mb-2 text-xs md:text-sm">Welcome to Zanzibar Safari</h4>
+                    <h2 class="text-2xl md:text-4xl font-serif font-bold text-gray-800 mb-6">Where Every Journey Becomes a Story</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">
+                        Zanzibar is an archipelago steeped in history and blessed with natural beauty. At Zanzibar Safari, We are locals passionate about sharing the authentic soul of our island.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed text-sm md:text-base">
+                        From the winding alleys of Stone Town to the spice farms and the crystalline waters of Nungwi, we curate experiences that go beyond the guidebooks, ensuring safe, comfortable, and unforgettable journeys.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-brand-accent text-lg md:text-xl"></i>
+                            <span class="font-medium text-sm md:text-base">Certified Guides</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-brand-accent text-lg md:text-xl"></i>
+                            <span class="font-medium text-sm md:text-base">Luxury Transport</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-brand-accent text-lg md:text-xl"></i>
+                            <span class="font-medium text-sm md:text-base">Custom Itineraries</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-brand-accent text-lg md:text-xl"></i>
+                            <span class="font-medium text-sm md:text-base">Local Prices</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tours" class="py-12 md:py-20 bg-gray-50 animated-section scroll-animate-up">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-8 md:mb-16">
+                <h4 class="text-brand-DEFAULT font-bold uppercase tracking-wider mb-2 text-xs md:text-sm">Our Best Sellers</h4>
+                <h2 class="text-2xl md:text-4xl font-serif font-bold text-gray-800">Curated Island Adventures</h2>
+                <div class="w-12 md:w-16 h-1 bg-brand-accent mx-auto mt-4 shadow-md"></div>
+            </div>
+
+            <!-- Initially visible Tour Cards (1-3) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+                
+                <!-- Tour Card 1: Prison Island -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/Prison island/prison island 2.jpg" alt="Prison Island" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Prison Island</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">Discover Prison Island's rich history and natural beauty. Enjoy crystal-clear waters, vibrant coral reefs, and ancient Aldabra tortoises on this serene retreat, just a boat ride from Stone Town.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> Half Day</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-water text-brand-DEFAULT"></i> Adventure</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('Prison Island')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 2: Jozani Forest -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-1">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/jozani/jozani forest.jpg" alt="Jozani Forest" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Jozani Forest</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">Explore Jozani Forest, Zanzibar's only national park. Encounter the rare Red Colobus monkeys in their natural habitat within this lush tropical forest.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 3 Hours</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-leaf text-brand-DEFAULT"></i> Nature</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('Jozani Forest')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 3: Stone Town -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-2">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/stone-town/stonetown (2).jpg" alt="Stone Town" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Stone Town</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">Step back in time with a guided tour of Stone Town, a UNESCO World Heritage site. Wander ancient streets, vibrant markets, and admire richly carved doors.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 2 Hours</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-gopuram text-brand-DEFAULT"></i> Culture</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('Stone Town')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 4: Kuza Cave -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-3">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/kuza/kuza cave.jpg" alt="Kuza Cave" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Kuza Cave</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">Experience Kuza Cave in Jambiani, a hidden gem for adventurers. Swim in crystal-clear spring water and explore ancient limestone formations. A unique dive into Swahili culture.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 2 Hours</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-mountain text-brand-DEFAULT"></i> Adventure</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('Kuza Cave')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 5: Maalum Cave -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-4">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/maalum/maalum cave.jpg" alt="Maalum Cave" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Maalum Cave</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">Adventure awaits at Maalum Cave in Paje. Swim in crystal-clear turquoise freshwater within a 50-meter sink cave, offering a unique blend of nature and Swahili culture.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 2 Hours</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-water text-brand-DEFAULT"></i> Culture</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('Maalum Cave')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 6: Salaam Cave -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-5">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/salaam/welcome-so-much-let-me.jpg" alt="Salaam Cave" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Salaam Cave</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">Swim with sea turtles in Salaam Cave's natural aquarium. Feed these beautiful creatures and capture unforgettable photos and videos of your marine encounter.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 2 Hours</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-heart text-brand-DEFAULT"></i> Marine Life</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('Salaam Cave')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 7: Dolphin Tour (Mnemba) -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-6">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/mnemba/mnemba dolphin tour.jpeg" alt="Dolphin tour-Mnemba Atoll" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Dolphin tour-Mnemba Atoll</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">Experience the best of Mnemba Atoll with a combined dolphin tour and snorkeling adventure. Swim alongside playful dolphins and explore vibrant coral reefs teeming with diverse marine life in pristine waters.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> Half Day</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-fish text-brand-DEFAULT"></i> Marine</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('Dolphin tour-Mnemba Atoll')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 8: Sunset Cruise -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-3">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/cruise/sunset-dhow-cruise6.jpg" alt="Sunset Cruise" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Sunset Cruise</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">A relaxing and romantic cruise for all. Enjoy drinks, fruits, and Zanzibar snacks aboard, accompanied by traditional taarab music or lively African ngoma dance.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 2 Hours</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-music text-brand-DEFAULT"></i> Romance</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('Sunset Cruise')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 9: Natural Sea Turtles Aquarium -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-4">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/Natural sea turtles aquarium.jpg" alt="Turtles Aquarium" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Natural Sea Turtles Aquarium</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">Swim with beautiful sea turtles and diverse marine life in a natural aquarium. Feed the turtles and capture memorable photos and videos of your experience.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 2 Hours</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-heart text-brand-DEFAULT"></i> Wildlife</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('Natural Sea Turtles Aquarium')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>                    </div>
+                </div>
+
+                <!-- Tour Card 10: Sky diving -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-5">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/caption (4).jpg" alt="Sky diving" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Sky diving</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">Take your adventure to new heights in Zanzibar. Jump from 10,000 feet and experience an exhilarating freefall before gliding gently under canopy with panoramic views of the islands.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> Half Day</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-parachute-box text-brand-DEFAULT"></i> Adventure</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('Sky diving')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 10: The Rock Restaurant -->
+                <!-- Tour Card 10: The Rock Restaurant -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-6">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/the rock/the rock.jpg" alt="The Rock Restaurant" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">The Rock Restaurant</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">Dine uniquely at The Rock Restaurant, perched in the Indian Ocean. Savor fresh seafood like octopus, lobster, and prawns, perfect for couples, families, and friends.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 1.5 Hours</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-utensils text-brand-DEFAULT"></i> Dining</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('The Rock Restaurant')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>                    </div>
+                </div>
+
+
+
+                <!-- Tour Card 12: Mikumi National Park -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up">
+                    <div class="image-container relative h-64 overflow-hidden">
+                        <img src="pictures/ZANZIBAR PICS/mikumi/2-days-mikumi-safari-zanzibar.jpg" alt="Mikumi Day Trip" class="tour-card-img w-full h-full object-cover">
+                    </div>
+                    <div class="tour-card-content">
+                        <div class="tour-card-body">
+                            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Day-trip safari to Mikumi</h3>
+                            <div class="description-wrapper">
+                                <p class="text-gray-600 text-sm">Embark on an authentic full-day safari to Mikumi National Park. Witness rare wildlife in their natural habitat with an experienced guide, a true Tanzanian wilderness adventure.</p>
+                            </div>
+                        </div>
+                        <div class="tour-card-footer">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> Full Day</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-paw text-brand-DEFAULT"></i> Wildlife</span>
+                            </div>
+                            
+                            <button type="button" onclick="bookTour('Mikumi National Park')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                        </div>                    </div>
+                </div>
+<!-- Tour Card 13: Nakupenda sandbank -->
+<div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-1">
+    <div class="image-container relative h-64 overflow-hidden">
+        <img src="pictures/ZANZIBAR PICS/Nakupenda beach/nakupenda sandbank.jpeg" alt="Nakupenda sandbank" class="tour-card-img w-full h-full object-cover">
+    </div>
+    <div class="tour-card-content">
+        <div class="tour-card-body">
+            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Nakupenda sandbank</h3>
+            <div class="description-wrapper">
+                <p class="text-gray-600 text-sm">Nakupenda (meaning 'I love you') offers relaxation, swimming, and snorkeling near Stone Town. Enjoy a delicious seafood BBQ lunch on the sandbank before sailing back.</p>
+            </div>
+        </div>
+        <div class="tour-card-footer">
+            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> Half Day</span>
+                <span class="flex items-center gap-2"><i class="fas fa-umbrella-beach text-brand-DEFAULT"></i> Beach</span>
+            </div>
+            
+            <button type="button" onclick="bookTour('Nakupenda sandbank')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+        </div>    </div>
+</div>
+
+<!-- Tour Card 14: Safari blue -->
+<div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-2">
+    <div class="image-container relative h-64 overflow-hidden">
+        <img src="pictures/ZANZIBAR PICS/safari blue/safariblue.jpg" alt="Safari blue" class="tour-card-img w-full h-full object-cover">
+    </div>
+                        <div class="tour-card-content">
+                            <div class="tour-card-body">
+                                <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Safari blue</h3>
+                                <div class="description-wrapper">
+                                    <p class="text-gray-600 text-sm">Embark on an unforgettable full-day Safari Blue adventure. Snorkel vibrant coral reefs, visit secluded sandbanks, and indulge in a seafood BBQ on Kwale Island.</p>
+                                </div>
+                            </div>
+                                                    <div class="tour-card-footer">
+                                                        <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                                                            <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> Full Day</span>
+                                                            <span class="flex items-center gap-2"><i class="fas fa-water text-brand-DEFAULT"></i> Adventure</span>
+                                                        </div>
+                                                        
+                                                        <button type="button" onclick="bookTour('Safari blue')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+                                                    </div>                        </div></div>
+<!-- Tour Card 15: Masingini forest -->
+<div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-3">
+    <div class="image-container relative h-64 overflow-hidden">
+        <img src="pictures/ZANZIBAR PICS/gallery/Masingini Forest 1.png" alt="Masingini forest" class="tour-card-img w-full h-full object-cover">
+    </div>
+    <div class="tour-card-content">
+        <div class="tour-card-body">
+            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Masingini forest</h3>
+            <div class="description-wrapper">
+                <p class="text-gray-600 text-sm">Explore the wild heart of Zanzibar with a guided walk through Masingini Forest. Discover rare wildlife, panoramic views, and serene trails, just minutes from town.</p>
+            </div>
+        </div>
+        <div class="tour-card-footer">
+            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 3 Hours</span>
+                <span class="flex items-center gap-2"><i class="fas fa-leaf text-brand-DEFAULT"></i> Nature</span>
+            </div>
+            
+            <button type="button" onclick="bookTour('Masingini forest')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+        </div>
+    </div>
+</div>
+
+<!-- Tour Card 16: Spice Tour -->
+<div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-4">
+    <div class="image-container relative h-64 overflow-hidden">
+        <img src="pictures/ZANZIBAR PICS/spice/Spice-tours-in-Zanzibar.jpg" alt="Spice Tour" class="tour-card-img w-full h-full object-cover">
+    </div>
+    <div class="tour-card-content">
+        <div class="tour-card-body">
+            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Spice Tour</h3>
+            <div class="description-wrapper">
+                <p class="text-gray-600 text-sm">Experience the rich aromas and vibrant flavors of Zanzibar on a guided Spice Tour through the island’s lush plantations. Known as the “Spice Island,” Zanzibar offers an immersive journey where you’ll see, smell, and taste a variety of spices.</p>
+            </div>
+        </div>
+        <div class="tour-card-footer">
+            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 2 Hours</span>
+                <span class="flex items-center gap-2"><i class="fas fa-seedling text-brand-DEFAULT"></i> Culture</span>
+            </div>
+            
+            <button type="button" onclick="bookTour('Spice Tour')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+        </div>
+    </div>
+</div>
+
+<!-- Tour Card 17: Swimming with horses -->
+<div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-5">
+    <div class="image-container relative h-64 overflow-hidden">
+        <img src="pictures/ZANZIBAR PICS/horse riding/145 (15).jpg" alt="Swimming with horses" class="tour-card-img w-full h-full object-cover">
+    </div>
+    <div class="tour-card-content">
+        <div class="tour-card-body">
+            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Swimming with horses</h3>
+            <div class="description-wrapper">
+                <p class="text-gray-600 text-sm">Swimming can be done by any level of rider including beginners, however you must be able to swim. Swimming with horses can only be done at high tide.</p>
+            </div>
+        </div>
+        <div class="tour-card-footer">
+            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 1 Hour</span>
+                <span class="flex items-center gap-2"><i class="fas fa-horse text-brand-DEFAULT"></i> Adventure</span>
+            </div>
+            
+            <button type="button" onclick="bookTour('Swimming with horses')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+        </div>
+    </div>
+</div>
+
+<!-- Tour Card 18: Jet ski -->
+<div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg animated-item scroll-animate-up delay-6">
+    <div class="image-container relative h-64 overflow-hidden">
+        <img src="pictures/ZANZIBAR PICS/jet ski/145 (4).jpg" alt="Jet ski" class="tour-card-img w-full h-full object-cover">
+    </div>
+    <div class="tour-card-content">
+        <div class="tour-card-body">
+            <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">Jet ski</h3>
+            <div class="description-wrapper">
+                <p class="text-gray-600 text-sm">Make unforgettable family memories with a Jet Ski adventure on Zanzibar’s sparkling blue waters. Ride across gentle waves, enjoy stunning coastline views, and share the excitement together.</p>
+            </div>
+        </div>
+        <div class="tour-card-footer">
+            <div class="flex items-center justify-between text-sm text-gray-500 mb-6 border-t border-b border-gray-100 py-4">
+                <span class="flex items-center gap-2"><i class="far fa-clock text-brand-DEFAULT"></i> 30 Mins</span>
+                <span class="flex items-center gap-2"><i class="fas fa-water text-brand-DEFAULT"></i> Adventure</span>
+            </div>
+            
+            <button type="button" onclick="bookTour('Jet ski')" class="tour-card-btn w-full bg-brand-light/20 border border-brand-light text-brand-DEFAULT px-4 py-2 rounded-lg text-sm font-semibold">Book Now</button>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Booking Section (Simplified) -->
+    <section id="booking" class="py-12 md:py-20 bg-gradient-to-br from-brand-light/5 via-brand-DEFAULT/2 to-brand-light/5 relative overflow-hidden animated-section scroll-animate-down">
+        <!-- Decorative blurred background elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 right-20 w-72 h-72 bg-brand-light/20 rounded-full blur-3xl opacity-30"></div>
+            <div class="absolute bottom-10 left-10 w-96 h-96 bg-brand-DEFAULT/10 rounded-full blur-3xl opacity-20"></div>
+        </div>
+
+        <div class="container mx-auto px-4 md:px-6 max-w-xl relative z-10">
+            <div class="text-center mb-8 md:mb-16">
+                <h4 class="text-gray-700 font-bold uppercase tracking-wider mb-2 text-xs md:text-sm">Secure Your Spot</h4>
+                <h2 class="text-2xl md:text-4xl font-serif font-bold text-gray-800">Book Your Adventure</h2>
+                <div class="w-12 md:w-16 h-1 bg-brand-accent mx-auto mt-4 shadow-md"></div>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur-md border border-white/40 shadow-2xl rounded-3xl p-4 sm:p-6 md:p-8 hover:shadow-2xl transition duration-500">
+                <form id="booking-form" class="space-y-4">
+                    
+                    <!-- Row 1: Tour & Date -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Tour Package -->
+                        <div>
+                            <label for="tour-select" class="block text-sm font-semibold text-gray-800 mb-2">Select Tour <span class="text-red-500">*</span></label>
+                            <select id="tour-select" name="tour" class="w-full bg-white border-2 border-gray-200 rounded-xl py-3 px-4 text-gray-800 font-medium focus:outline-none focus:border-brand-DEFAULT focus:ring-2 focus:ring-brand-DEFAULT/20 transition duration-200 shadow-sm hover:border-gray-300">
+                                <option value="">Select a tour</option>
+                                <option value="Prison Island">Prison Island</option>
+                                <option value="Jozani Forest">Jozani Forest</option>
+                                <option value="Stone Town">Stone Town</option>
+                                <option value="Kuza Cave">Kuza Cave</option>
+                                <option value="Maalum Cave">Maalum Cave</option>
+                                <option value="Salaam Cave">Salaam Cave</option>
+                                <option value="Dolphin tour-Mnemba Atoll">Dolphin tour-Mnemba Atoll</option>
+                                <option value="Sunset Cruise">Sunset Cruise</option>
+                                <option value="Natural Sea Turtles Aquarium">Natural Sea Turtles Aquarium</option>
+                                <option value="Sky diving">Sky diving</option>
+                                <option value="The Rock Restaurant">The Rock Restaurant</option>
+                                <option value="Mikumi National Park">Mikumi National Park</option>
+                                <option value="Nakupenda sandbank">Nakupenda sandbank</option>
+                                <option value="Safari blue">Safari blue</option>
+                                <option value="Masingini forest">Masingini forest</option>
+                                <option value="Spice Tour">Spice Tour</option>
+                                <option value="Swimming with horses">Swimming with horses</option>
+                                <option value="Jet ski">Jet ski</option>
+                            </select>
+                        </div>
+
+                        <!-- Preferred Date -->
+                        <div>
+                            <label for="booking-date" class="block text-sm font-semibold text-gray-800 mb-2">Preferred Date <span class="text-red-500">*</span></label>
+                            <input type="date" id="booking-date" name="date" required class="w-full bg-white border-2 border-gray-200 rounded-xl py-3 px-4 text-gray-800 font-medium focus:outline-none focus:border-brand-DEFAULT focus:ring-2 focus:ring-brand-DEFAULT/20 transition duration-200 shadow-sm hover:border-gray-300">
+                        </div>
+                    </div>
+
+                    <!-- Full Name -->
+                    <div>
+                        <label for="full-name" class="block text-sm font-semibold text-gray-800 mb-2">Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" id="full-name" name="name" required class="w-full bg-white border-2 border-gray-200 rounded-xl py-3 px-4 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-brand-DEFAULT focus:ring-2 focus:ring-brand-DEFAULT/20 transition duration-200 shadow-sm hover:border-gray-300">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-gray-800 mb-2">Email <span class="text-red-500">*</span></label>
+                        <input type="email" id="email" name="email" required class="w-full bg-white border-2 border-gray-200 rounded-xl py-3 px-4 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-brand-DEFAULT focus:ring-2 focus:ring-brand-DEFAULT/20 transition duration-200 shadow-sm hover:border-gray-300">
+                    </div>
+
+                    <!-- Row 2: Phone & Guests -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Phone -->
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold text-gray-800 mb-2">Phone Number <span class="text-red-500">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+255 7... or +44 7..." required class="w-full bg-white border-2 border-gray-200 rounded-xl py-3 px-4 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-brand-DEFAULT focus:ring-2 focus:ring-brand-DEFAULT/20 transition duration-200 shadow-sm hover:border-gray-300">
+                        </div>
+
+                        <!-- Number of Guests -->
+                        <div>
+                            <label for="guests" class="block text-sm font-semibold text-gray-800 mb-2">Number of Guests <span class="text-red-500">*</span></label>
+                            <input type="number" id="guests" name="guests" min="1" value="1" required class="w-full bg-white border-2 border-gray-200 rounded-xl py-3 px-4 text-gray-800 font-medium focus:outline-none focus:border-brand-DEFAULT focus:ring-2 focus:ring-brand-DEFAULT/20 transition duration-200 shadow-sm hover:border-gray-300">
+                        </div>
+                    </div>
+
+                    <!-- Special Requests (Optional) -->
+                    <div>
+                        <label for="requests" class="block text-sm font-semibold text-gray-800 mb-2">Special Requests <span class="text-gray-400 text-xs font-normal">(optional)</span></label>
+                        <textarea id="requests" name="requests" rows="3" placeholder="Any special requests or dietary needs..." class="w-full bg-white border-2 border-gray-200 rounded-xl py-3 px-4 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-brand-DEFAULT focus:ring-2 focus:ring-brand-DEFAULT/20 transition duration-200 shadow-sm hover:border-gray-300 resize-none"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex gap-3 justify-end pt-4">
+                        <button type="reset" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg transition duration-200 flex items-center gap-2 shadow-sm hover:shadow-md">
+                            <i class="fas fa-redo text-sm"></i> Clear
+                        </button>
+                        <button type="submit" class="bg-brand-accent hover:bg-amber-600 text-white px-6 py-2 rounded-full transition shadow-lg transform hover:-translate-y-0.5 font-semibold">
+                            Book Now
+                        </button>
+                    </div>
+
+                </form>                <!-- Success Message (Initially Hidden) -->
+                <div id="success-message" class="hidden text-center py-12">
+                    <i class="fas fa-check-circle text-brand-DEFAULT text-6xl mb-6 inline-block animate-bounce"></i>
+                    <h3 class="text-3xl font-serif font-bold text-gray-800 mb-4">Booking Request Sent!</h3>
+                    <p class="text-lg text-gray-600 mb-6">Thank you! Our team will contact you via WhatsApp or Email within 2 hours to confirm your booking.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+                        <a href="#home" class="bg-brand-accent hover:bg-amber-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-md">
+                            Back to Home
+                        </a>
+                        <button id="edit-booking-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-md">
+                            Edit Booking
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Error Message Container (Hidden by default) -->
+                <div id="error-message" class="mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden transition-opacity duration-300" role="alert">
+                    <strong class="font-bold">Oops!</strong>
+                    <span class="block sm:inline" id="error-text">Please fill out all required fields.</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Us Section -->
+    <section id="why-us" class="py-12 md:py-20 bg-white animated-section scroll-animate-up">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-8 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-serif font-bold text-gray-800">Why Choose Us?</h2>
+                <div class="w-12 md:w-16 h-1 bg-brand-accent mx-auto mt-4 shadow-md"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center p-8 rounded-xl bg-gray-50 border border-gray-100 hover:shadow-lg transition animated-item">
+                    <div class="w-20 h-20 bg-brand-light/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-map-marked-alt text-3xl text-brand-DEFAULT"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Local Expertise</h3>
+                    <p class="text-gray-600">Our guides were born here. They know the hidden gems, the secret beaches, and the stories behind them that you won't find online.</p>
+                </div>
+
+                <div class="text-center p-8 rounded-xl bg-gray-50 border border-gray-100 hover:shadow-lg transition animated-item delay-1">
+                    <div class="w-20 h-20 bg-brand-light/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-umbrella-beach text-3xl text-brand-DEFAULT"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Tailored Experiences</h3>
+                    <p class="text-gray-600">We don't do "one size fits all." We customize itineraries to match your pace, interests, and budget for a perfect holiday.</p>
+                </div>
+
+                <div class="text-center p-8 rounded-xl bg-gray-50 border border-gray-100 hover:shadow-lg transition animated-item delay-2">
+                    <div class="w-20 h-20 bg-brand-light/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-headset text-3xl text-brand-DEFAULT"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">24/7 Support</h3>
+                    <p class="text-gray-600">From the moment you land until you depart, our team is always on a phone call or WhatsApp message away to assist you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-12 md:py-20 bg-gray-50 animated-section scroll-animate-left">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-8 md:mb-16">
+                <h4 class="text-brand-DEFAULT font-bold uppercase tracking-wider mb-2 text-xs md:text-sm">Our Gallery</h4>
+                <h2 class="text-2xl md:text-4xl font-serif font-bold text-gray-800">A Glimpse of Paradise</h2>
+                <div class="w-12 md:w-16 h-1 bg-brand-accent mx-auto mt-4 shadow-md"></div>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/2EE0B14F-26B4-4C55-94FE-4A5281897A50.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item gallery-item-featured">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/cruise/sunset-dhow-cruise6.jpg" alt="Sunset Cruise">
+                </div>
+                <div class="gallery-item gallery-item-featured">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/horse riding/Zanzibar Horse Safaris _b Spend a beautiful aftern.jpg" alt="Horse Riding">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/4A214B17-7AD4-442C-BE6B-69E67227F42F.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/66966EBC-63CB-4A7F-95CC-B30A89DA8986.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/8b.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/animal-19621.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/D0EEF29B-595B-4805-9366-0AF4FB718D36.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/the rock/the rock.jpg" alt="The Rock Restaurant">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/DJI_0657.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/Whale watching/MAFIA SLAND2.jpg" alt="Whale Watching">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/safariblue/1_safari_blue_sq.jpg" alt="Safari Blue">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/safariblue/SANDBANK AT SAFARI BLUE.jpg" alt="Safari Blue Sandbank">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/caption (13).jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/EASY T 31.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/DJI_0049.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/DJI_0072.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/DJI_0709.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/dolphin-tour-1.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/92023869-8D15-426B-9E38-A473DE8C8592.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/029ED4E5-E85E-4731-BD83-45998B6F272C.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/1234.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/145 (6).jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/145 (8).jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/145_12.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/145_14.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/1CBA3557-52AD-410B-B474-126A53B7051A.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/1DB4D6D6-A67F-42C7-A0D4-B72AD858A902.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/22B411A0-1981-4B12-9F35-97BA8BB9BB44.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img loading="lazy" src="pictures/ZANZIBAR PICS/gallery/234AF008-CE50-4C2A-8C01-72E320C56D19.jpeg" alt="Gallery Image">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-12 md:py-20 bg-gray-100 animated-section scroll-animate-up">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-8 md:mb-16">
+                <h4 class="text-brand-DEFAULT font-bold uppercase tracking-wider mb-2 text-xs md:text-sm">What Our Clients Say</h4>
+                <h2 class="text-2xl md:text-4xl font-serif font-bold text-gray-800">Hear From Our Adventurers</h2>
+                <div class="w-12 md:w-16 h-1 bg-brand-accent mx-auto mt-4 shadow-md"></div>
+            </div>
+            
+            <div class="relative flex items-center justify-center"> <!-- New wrapper div for positioning arrows -->
+                <button id="testimonial-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 transition text-brand-DEFAULT z-10 hidden md:block">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div id="testimonial-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mx-auto">
+                    <!-- Testimonials will be loaded here by JavaScript -->
+                </div>
+                <button id="testimonial-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 transition text-brand-DEFAULT z-10 hidden md:block">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-bg py-16 md:py-24 text-center text-white relative animated-section">
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+            <h2 class="text-2xl md:text-5xl font-serif font-bold mb-6 text-shadow">Ready to plan your island getaway?</h2>
+            <p class="text-base md:text-xl mb-10 max-w-2xl mx-auto font-light">Contact us today for a free consultation and customized itinerary proposal. Paradise is closer than you think.</p>
+            <a href="#booking" class="bg-brand-accent hover:bg-amber-600 text-white px-10 py-4 rounded-full font-bold text-lg transition shadow-xl inline-block transform hover:scale-105">Start Planning</a>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="py-12 md:py-24 bg-gradient-to-b from-white via-gray-50 to-white animated-section scroll-animate-up">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-8 md:mb-16">
+                <span class="text-brand-accent font-bold text-xs md:text-sm uppercase tracking-widest">Trusted By</span>
+                <h2 class="text-2xl md:text-5xl font-serif font-bold text-gray-800 mt-2 mb-4">Our Partners</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-6 text-sm md:text-base">Collaborating with industry leaders to deliver exceptional Zanzibar experiences</p>
+                <div class="w-16 md:w-20 h-1 bg-gradient-to-r from-brand-accent via-brand-light to-brand-accent mx-auto"></div>
+            </div>
+            
+            <div class="mt-8 md:mt-16">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 lg:gap-6 items-center justify-items-center">
+                    <!-- Partner 1 - Trustpilot (Far Left) -->
+                    <div class="group relative w-full h-32 md:h-40 flex items-center justify-center p-2 md:p-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transition-all duration-500 cursor-pointer lg:col-start-1 hover:scale-105">
+                        <img src="pictures/ZANZIBAR PICS/webpartnerLogos/logo-240x35@3x (2).png" alt="Partner Logo" class="h-16 md:h-24 object-contain max-w-full transition-all duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 rounded-lg bg-brand-accent opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+                    </div>
+                    
+                    <!-- Partner 2 -->
+                    <div class="group relative w-full h-32 md:h-40 flex items-center justify-center p-2 md:p-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transition-all duration-500 cursor-pointer hover:scale-105">
+                        <img src="pictures/ZANZIBAR PICS/webpartnerLogos/download-removebg-preview.png" alt="Partner Logo" class="h-16 md:h-24 object-contain max-w-full filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 rounded-lg bg-brand-accent opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+                    </div>
+                    
+                    <!-- Partner 3 - Travel Life -->
+                    <div class="group relative w-full h-32 md:h-40 flex items-center justify-center p-2 md:p-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transition-all duration-500 cursor-pointer lg:col-start-3 hover:scale-105">
+                        <img src="pictures/ZANZIBAR PICS/webpartnerLogos/travellifelogo.png" alt="Partner Logo" class="h-16 md:h-24 object-contain max-w-full filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 rounded-lg bg-brand-accent opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+                    </div>
+                    
+                    <!-- Partner 4 - Tripadvisor -->
+                    <div class="group relative w-full h-32 md:h-40 flex items-center justify-center p-2 md:p-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transition-all duration-500 cursor-pointer lg:col-start-4 hover:scale-105">
+                        <img src="pictures/ZANZIBAR PICS/webpartnerLogos/wordmark.png" alt="Partner Logo" class="h-20 md:h-28 object-contain max-w-full transition-all duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 rounded-lg bg-brand-accent opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+                    </div>
+                    
+                    <!-- Partner 5 - Bookmundi (Far Right - Enlarged) -->
+                    <div class="group relative w-full col-span-2 md:col-span-1 h-40 md:h-40 flex items-center justify-center p-2 md:p-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transition-all duration-500 cursor-pointer lg:col-start-5 hover:scale-105">
+                        <img src="pictures/ZANZIBAR PICS/webpartnerLogos/bokmondi56-removebg-preview.png" alt="Partner Logo" class="h-32 w-full md:h-28 md:w-auto object-contain max-w-full transition-all duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 rounded-lg bg-brand-accent opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-brand-dark text-gray-100 pt-12 md:pt-16 pb-4 md:pb-8 relative overflow-hidden">
+        <div id="footer-bg-image" class="absolute inset-0 z-0"></div>
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-8 gap-x-12 mb-12">
+                <!-- Brand & About (Larger Column) -->
+                <div class="lg:col-span-2">
+                    <a href="#home" class="footer-logo-text text-brand-accent mb-4 inline-block">Zanzibar Safari</a>
+                    <p class="text-base leading-relaxed text-gray-300 mb-4 max-w-md">
+                        Embark on an unforgettable journey with Zanzibar Safari. We craft bespoke experiences across the spice island and the wild heart of Tanzania, ensuring every moment is unique and authentic.
+                    </p>
+                    <p class="text-lg text-brand-accent mt-6 italic font-handwriting">Zanzibar Safari - Where Every Journey Becomes a Story</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-serif font-bold text-2xl mb-8 relative after:absolute after:w-16 after:h-1 after:bg-brand-accent after:bottom-[-12px] after:left-0">Explore</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#about" class="hover:text-brand-accent transition duration-300">About Us</a></li>
+                        <li><a href="#tours" class="hover:text-brand-accent transition duration-300">Our Tours</a></li>
+                        <li><a href="#why-us" class="hover:text-brand-accent transition duration-300">Why Choose Us</a></li>
+                        <li><a href="#gallery" class="hover:text-brand-accent transition duration-300">Gallery</a></li>
+                        <li><a href="#booking" class="hover:text-brand-accent transition duration-300">Book Your Trip</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-white font-serif font-bold text-2xl mb-8 relative after:absolute after:w-16 after:h-1 after:bg-brand-accent after:bottom-[-12px] after:left-0">Connect</h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-brand-accent mt-1.5 text-xl"></i>
+                            <span>Stone    Town,<br>Zanzibar, Tanzania</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-brand-accent text-xl"></i>
+                            <a href="tel:+255670639283" class="hover:text-brand-accent transition duration-300">+255 670 639 283</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-accent text-xl"></i>
+                            <a href="mailto:zanzisafari@gmail.com" class="hover:text-brand-accent transition duration-300">Zanzisafari@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter / Social -->
+                <div>
+                    <h3 class="text-white font-serif font-bold text-2xl mb-8 relative after:absolute after:w-16 after:h-1 after:bg-brand-accent after:bottom-[-12px] after:left-0">Follow Us</h3>
+
+                    <div class="flex space-x-4 mt-6 lg:justify-start">
+                        <a href="https://www.tiktok.com/@zanzibar__safari?_t=ZM-8xznIHDrKZp&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-700 hover:bg-brand-accent transition duration-300 text-xl">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://youtube.com/@zanzibar__safari?si=sn1a84PkLv9qhl5Y" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-700 hover:bg-brand-accent transition duration-300 text-xl">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.instagram.com/zanzibar__safari?igsh=MXJrMmF3cjlxMmJudQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-700 hover:bg-brand-accent transition duration-300 text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/159VFNETZqK/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-700 hover:bg-brand-accent transition duration-300 text-xl">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-4 text-center text-gray-500 text-sm mt-8">
+                <p class="text-center"> &copy;2025 <b>Zanzibar Safari</b> | All Right Reserved | Designed by <b><a href="tel:+255682314147" class="hover:text-brand-accent transition duration-300">Catalyst</a></b></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <button id="lightbox-prev" class="lightbox-nav lightbox-prev fas fa-chevron-left"></button>
+        <div class="lightbox-content">
+            <img src="" alt="Lightbox image">
+        </div>
+        <button id="lightbox-next" class="lightbox-nav lightbox-next fas fa-chevron-right"></button>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/255786639283?text=Hi!%20I'm%20interested%20in%20your%20tours.%20Could%20you%20help%20me%20plan%20my%20Zanzibar%20adventure%3F" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <div class="whatsapp-icon-container">
+            <i class="fab fa-whatsapp whatsapp-icon"></i>
+            <span class="whatsapp-text">Chat with us</span>
+        </div>
+    </a>
+
+    <!-- JavaScript for Interactivity -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
