@@ -218,29 +218,42 @@ if (navbar) {
 
 
 /**
- * Toggles the visibility of the mobile navigation menu.
+ * Toggles the visibility of the mobile navigation menu with animation.
+ * Also handles closing the menu when clicking outside of it or on a menu link.
  */
 const btn = document.getElementById('hamburger-btn');
 const menu = document.getElementById('mobile-menu');
 
 if (btn && menu) {
-    btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
+    // Open/close the menu when the hamburger button is clicked
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent this click from being caught by the document listener
+        menu.classList.toggle('menu-open');
     });
-}
 
+    // Add a global click listener to close the menu when clicking away
+    document.addEventListener('click', (e) => {
+        if (menu.classList.contains('menu-open')) {
+            const isClickInsideMenu = menu.contains(e.target);
+            const isClickOnButton = btn.contains(e.target);
 
-/**
- * Closes the mobile menu automatically when a navigation link is clicked.
- */
-const mobileLinks = document.querySelectorAll('#mobile-menu a');
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (menu) {
-            menu.classList.add('hidden');
+            // If the click is not inside the menu and not on the button, close the menu
+            if (!isClickInsideMenu && !isClickOnButton) {
+                menu.classList.remove('menu-open');
+            }
         }
     });
-});
+
+    // Close the menu when a link inside it is clicked
+    const mobileLinks = document.querySelectorAll('#mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (menu.classList.contains('menu-open')) {
+                menu.classList.remove('menu-open');
+            }
+        });
+    });
+}
 
 // ---------------------------------------------------------------------------------
 // PHOTO GALLERY & LIGHTBOX LOGIC

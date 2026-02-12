@@ -153,7 +153,8 @@ Custom Stylesheet
     .tour-card {
         height: 540px; /* Increased for better image visibility on mobile */
         min-height: unset;
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
         visibility: visible !important;
     }
 
@@ -163,6 +164,7 @@ Custom Stylesheet
 
     .tour-card .image-container {
         height: 260px; /* Much larger image on mobile - use whitespace wisely */
+        flex-shrink: 0;
     }
 
     .tour-card.expanded .image-container {
@@ -173,6 +175,16 @@ Custom Stylesheet
         padding: 0.75rem; /* Reduced padding to give more space */
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+    }
+
+    .tour-card-body {
+        flex-grow: 0; /* Do not grow to push footer */
+    }
+
+    .tour-card-footer .flex {
+        margin-bottom: 0.75rem; /* was inconsistent mb-3 or mb-6 */
     }
 
     .tour-card-btn {
@@ -182,7 +194,7 @@ Custom Stylesheet
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: auto; /* Push button to bottom */
+        margin-top: 0; /* not auto */
     }
 
     .tour-card-footer span {
@@ -240,7 +252,8 @@ Custom Stylesheet
     .tour-card {
         height: 500px; /* Increased for image visibility on extra-small */
         min-height: unset;
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
         visibility: visible !important;
     }
 
@@ -250,6 +263,7 @@ Custom Stylesheet
 
     .tour-card .image-container {
         height: 220px; /* Much larger image on extra-small - use whitespace wisely */
+        flex-shrink: 0;
     }
 
     .tour-card.expanded .image-container {
@@ -260,6 +274,8 @@ Custom Stylesheet
         padding: 0.7rem;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
     }
 
     .tour-card-btn {
@@ -269,7 +285,7 @@ Custom Stylesheet
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: auto; /* Push button to bottom */
+        margin-top: 0; /* Push button to bottom */
     }
 
     .tour-card-footer span {
@@ -632,3 +648,17 @@ Custom Stylesheet
 .delay-4 { transition-delay: 0.4s; }
 .delay-5 { transition-delay: 0.5s; }
 .delay-6 { transition-delay: 0.6s; }
+
+/* --- Mobile Menu Animation --- */
+#mobile-menu {
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+#mobile-menu.menu-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
