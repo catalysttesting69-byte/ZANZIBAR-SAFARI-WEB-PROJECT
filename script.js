@@ -47,6 +47,48 @@ function bookTour(tourName) {
     }
 }
 
+// ---------------------------------------------------------------------------------
+// EXPANDABLE TOUR DESCRIPTIONS WITH IMAGE ANIMATION
+// ---------------------------------------------------------------------------------
+
+/**
+ * Initialize clickable tour descriptions.
+ * Click description to expand/collapse.
+ * Image shrinks up when description expands.
+ */
+function initializeTourDescriptions() {
+    const descriptions = document.querySelectorAll('.description-wrapper');
+    
+    descriptions.forEach((desc) => {
+        desc.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            const tourCard = this.closest('.tour-card');
+            const isExpanded = this.classList.contains('expanded');
+            
+            if (isExpanded) {
+                // Collapse
+                this.classList.remove('expanded');
+                tourCard.classList.remove('expanded');
+            } else {
+                // Expand
+                this.classList.add('expanded');
+                tourCard.classList.add('expanded');
+                
+                // Smooth scroll to keep card visible
+                setTimeout(() => {
+                    tourCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 200);
+            }
+        });
+    });
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeTourDescriptions();
+});
+
 // --- Form Submission Handler ---
 
 // Get references to the form and message boxes for later use.

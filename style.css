@@ -28,9 +28,16 @@ Custom Stylesheet
 .tour-card {
     display: flex;
     flex-direction: column;
-    height: 550px;
+    height: 620px; /* Default height for mobile/tablet */
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border-radius: 0 0 16px 16px; /* Square top, rounded bottom */
+}
+
+.tour-card.expanded {
+    height: 620px; /* Keep same height */
+    overflow: hidden; /* Keep content contained */
 }
 
 .tour-card:hover {
@@ -51,15 +58,31 @@ Custom Stylesheet
 }
 
 .description-wrapper {
-    max-height: 6em; /* Approximately 4 lines * 1.5em line-height */
+    max-height: 4.5em; /* Truncate to ~3 lines initially */
     line-height: 1.5em;
     overflow: hidden;
     position: relative;
+    transition: max-height 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.description-wrapper:hover {
+    opacity: 0.75;
+}
+
+.description-wrapper.expanded {
+    max-height: none;
+    overflow: visible;
 }
 
 .tour-card .image-container {
-    height: 16rem; /* h-64 */
-    transition: height 0.5s ease-in-out;
+    height: 18rem; /* Increased from 16rem to 288px */
+    transition: height 0.4s ease-in-out;
+    flex-shrink: 0;
+}
+
+.tour-card.expanded .image-container {
+    height: 11rem; /* Shrink image when description expands */
 }
 
 .tour-card-img {
@@ -67,6 +90,7 @@ Custom Stylesheet
     width: 100%;
     height: 100%;
     object-fit: cover;
+    aspect-ratio: 16 / 9;
 }
 
 /* --- Button Animation --- */
@@ -113,49 +137,56 @@ Custom Stylesheet
         background-attachment: scroll;
     }
 
+    /* Disable animations on mobile - ensure visibility */
+    .animated-section {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .animated-item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
     /* Mobile-responsive Tour Cards */
     .tour-card {
-        height: auto; /* Allow cards to size based on content */
-        min-height: 380px;
+        height: 540px; /* Increased for better image visibility on mobile */
+        min-height: unset;
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    .tour-card.expanded {
+        height: 540px; /* Keep same height when expanded */
     }
 
     .tour-card .image-container {
-        height: 14rem; /* Increase image space to 224px */
+        height: 260px; /* Much larger image on mobile - use whitespace wisely */
+    }
+
+    .tour-card.expanded .image-container {
+        height: 180px; /* Shrink when expanded on mobile */
     }
 
     .tour-card-content {
-        padding: 1rem; /* Reduce padding to give more space for image */
-    }
-
-    .tour-card h3 {
-        font-size: 0.95rem; /* Slightly smaller heading on mobile */
-        margin-bottom: 0.5rem;
-    }
-
-    .description-wrapper {
-        max-height: 3.5em; /* Reduce from 6em to 3.5em (2-3 lines) */
-        font-size: 0.8rem;
+        padding: 0.75rem; /* Reduced padding to give more space */
+        display: flex;
+        flex-direction: column;
     }
 
     .tour-card-btn {
-        padding: 0.4rem 0.8rem; /* Reduce button padding */
-        font-size: 0.8rem;
-    }
-
-    .tour-card-footer {
-        padding-top: 0.5rem;
-    }
-
-    .tour-card-footer .flex {
-        /* Keep hours on the left and tour type on the right on small screens */
-        flex-direction: row;
-        justify-content: space-between;
+        padding: 0.7rem 1.2rem; /* Good touch target */
+        font-size: 0.85rem;
+        min-height: 44px;
+        display: flex;
         align-items: center;
-        gap: 0.5rem;
+        justify-content: center;
+        margin-top: auto; /* Push button to bottom */
     }
 
     .tour-card-footer span {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
     .tour-card-footer .flex span:first-child {
         color: #0d9488; /* brand color for emphasis on time */
@@ -192,44 +223,57 @@ Custom Stylesheet
     }
 }
 
-/* Gallery responsive styles */
+/* Extra small screens: iPhone SE, Galaxy Z Fold, split screen */
 @media (max-width: 480px) {
+    /* Disable all animations on extra-small screens */
+    .animated-section {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .animated-item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
     .tour-card {
-        min-height: 350px;
+        height: 500px; /* Increased for image visibility on extra-small */
+        min-height: unset;
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    .tour-card.expanded {
+        height: 500px; /* Keep same height when expanded */
     }
 
     .tour-card .image-container {
-        height: 12.5rem; /* Increase to 200px for more image space */
+        height: 220px; /* Much larger image on extra-small - use whitespace wisely */
+    }
+
+    .tour-card.expanded .image-container {
+        height: 160px; /* Shrink when expanded */
     }
 
     .tour-card-content {
-        padding: 0.75rem;
-    }
-
-    .tour-card h3 {
-        font-size: 0.9rem;
-    }
-
-    .description-wrapper {
-        max-height: 2.5em; /* About 2 lines */
-        font-size: 0.75rem;
+        padding: 0.7rem;
+        display: flex;
+        flex-direction: column;
     }
 
     .tour-card-btn {
-        padding: 0.35rem 0.7rem;
-        font-size: 0.75rem;
-    }
-
-    .tour-card-footer .flex {
-        /* Keep hours left and tour type right on extra-small screens */
-        flex-direction: row;
-        justify-content: space-between;
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+        min-height: 44px;
+        display: flex;
         align-items: center;
-        gap: 0.4rem;
+        justify-content: center;
+        margin-top: auto; /* Push button to bottom */
     }
 
     .tour-card-footer span {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
     }
     .tour-card-footer .flex span:first-child {
         color: #0d9488;
@@ -248,6 +292,29 @@ Custom Stylesheet
     }
 }
 
+/* Ultra-small screens: < 320px width */
+@media (max-width: 320px) {
+    .tour-card {
+        min-height: 300px;
+    }
+
+    .tour-card .image-container {
+        height: 9rem;
+    }
+
+    .tour-card-content {
+        padding: 0.6rem;
+    }
+
+    .tour-card h3 {
+        font-size: 0.85rem;
+    }
+
+    .tour-card-btn {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.7rem;
+    }
+}
 
 /* --- Gallery Styles --- */
 .gallery-grid {
@@ -491,6 +558,15 @@ Custom Stylesheet
 
 /* Responsive positioning for the footer logo on large screens */
 @media (min-width: 1024px) {
+    /* Large screens: reduce tour card height */
+    .tour-card {
+        height: 560px; /* Further reduced height for large screens */
+    }
+
+    .tour-card.expanded {
+        height: 560px;
+    }
+
     #contact::before {
         background-size: 180px; /* A more contained size to fit behind the icons */
         background-position: 90% 70%; /* Centered in the last column, and vertically aligned with the icons */
@@ -538,12 +614,12 @@ Custom Stylesheet
 
 /* --- Staggered Item Animations --- */
 .animated-item {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    opacity: 1; /* Cards visible by default */
+    transform: translateY(0) scale(1);
     transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* When the parent .animated-section becomes visible, these items will trigger */
+/* When the scroll animation triggers, still apply the transition */
 .is-visible .animated-item {
     opacity: 1;
     transform: translateY(0) scale(1);
